@@ -9,11 +9,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var viewColorRange: UIView!
+    
+    @IBOutlet weak var redColorValue: UIView!
+    @IBOutlet weak var greenColorValue: UITextField!
+    @IBOutlet weak var blueColorValue: UITextField!
+        
+    @IBOutlet weak var redColorSlider: UISlider!
+    @IBOutlet weak var greenColorSlider: UISlider!
+    @IBOutlet weak var blueColorSlider: UISlider!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+   
     }
 
-
+    @IBAction func redColorSet() {
+    }
+    
+    @IBAction func greenColorSet() {
+    }
+    
+    @IBAction func blueColorSet() {
+    }
 }
 
