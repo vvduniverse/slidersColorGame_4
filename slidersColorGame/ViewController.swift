@@ -1,26 +1,22 @@
-//
-//  ViewController.swift
-//  slidersColorGame
-//
-//  Created by Tato Admin on 09.07.2021.
-//
 
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var viewColorRange: UIView!
-
-    @IBOutlet weak var redColorValue: UILabel!
-    @IBOutlet weak var greenColorValue: UILabel!
-    @IBOutlet weak var blueColorValue: UILabel!
+    
+    @IBOutlet weak var redColorValueLabel: UILabel!
+    @IBOutlet weak var greenColorValueLabel: UILabel!
+    @IBOutlet weak var blueColorValueLabel: UILabel!
     
     @IBOutlet weak var redColorSlider: UISlider!
     @IBOutlet weak var greenColorSlider: UISlider!
     @IBOutlet weak var blueColorSlider: UISlider!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewColorRange.layer.cornerRadius = 15
         
         redColorSlider.value = 0.5
         greenColorSlider.value = 0.5
@@ -38,23 +34,21 @@ class ViewController: UIViewController {
         greenColorSlider.minimumTrackTintColor = .green
         blueColorSlider.minimumTrackTintColor = .blue
         
-        redColorValue.text = String(redColorSlider.value)
-        greenColorValue.text = String(greenColorSlider.value)
-        blueColorValue.text = String(blueColorSlider.value)
+        redColorValueLabel.text = String(redColorSlider.value)
+        greenColorValueLabel.text = String(greenColorSlider.value)
+        blueColorValueLabel.text = String(blueColorSlider.value)
         
-        viewColorRange.layer.cornerRadius = 15
-
     }
-
+    
     @IBAction func redColorSet() {
         
-        let redValue = String(round(redColorSlider.value * 100) / 100)
+        let redColorValue = String(round(redColorSlider.value * 100) / 100)
         let redColor = UIColor(red: CGFloat(redColorSlider.value),
                                green: CGFloat(greenColorSlider.value),
                                blue: CGFloat(blueColorSlider.value),
                                alpha: 1)
         
-        redColorValue.text = redValue
+        redColorValueLabel.text = redColorValue
         viewColorRange.backgroundColor = redColor
     }
     //        я думал о том, чтобы выделить все строки логическими отступами, но тогда слишком разреженно выглядит код. поэтому оставил так :)
@@ -62,25 +56,25 @@ class ViewController: UIViewController {
     
     @IBAction func greenColorSet() {
         
-        let greenValue = String(round(greenColorSlider.value * 100) / 100)
+        let greenColorValue = String(round(greenColorSlider.value * 100) / 100)
         let greenColor = UIColor(red: CGFloat(redColorSlider.value),
-                               green: CGFloat(greenColorSlider.value),
-                               blue: CGFloat(blueColorSlider.value),
-                               alpha: 1)
+                                 green: CGFloat(greenColorSlider.value),
+                                 blue: CGFloat(blueColorSlider.value),
+                                 alpha: 1)
         
-        greenColorValue.text = greenValue
+        greenColorValueLabel.text = greenColorValue
         viewColorRange.backgroundColor = greenColor
     }
     
     @IBAction func blueColorSet() {
         
-        let blueValue = String(round(blueColorSlider.value * 100) / 100)
+        let blueColorValue = String(round(blueColorSlider.value * 100) / 100)
         let blueColor = UIColor(red: CGFloat(redColorSlider.value),
                                 green: CGFloat(greenColorSlider.value),
                                 blue: CGFloat(blueColorSlider.value),
                                 alpha: 1)
         
-        blueColorValue.text = blueValue
+        blueColorValueLabel.text = blueColorValue
         viewColorRange.backgroundColor = blueColor
     }
     
