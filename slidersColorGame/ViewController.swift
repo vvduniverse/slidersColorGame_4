@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenColorSlider: UISlider!
     @IBOutlet weak var blueColorSlider: UISlider!
     
+    func backgroundColors() {
+        viewColorRange.backgroundColor = UIColor(red: CGFloat(redColorSlider.value),
+                                                 green: CGFloat(greenColorSlider.value),
+                                                 blue: CGFloat(blueColorSlider.value),
+                                                 alpha: 1)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,13 +50,10 @@ class ViewController: UIViewController {
     @IBAction func redColorSet() {
         
         let redColorValue = String(round(redColorSlider.value * 100) / 100)
-        let redColor = UIColor(red: CGFloat(redColorSlider.value),
-                               green: CGFloat(greenColorSlider.value),
-                               blue: CGFloat(blueColorSlider.value),
-                               alpha: 1)
         
         redColorValueLabel.text = redColorValue
-        viewColorRange.backgroundColor = redColor
+        
+        backgroundColors()
     }
     //        я думал о том, чтобы выделить все строки логическими отступами, но тогда слишком разреженно выглядит код. поэтому оставил так :)
     //        делать ли эти свойства приватными? я не увидел возможности обратиться к этой функции дальше... или я что-то не понял :)
@@ -57,26 +61,22 @@ class ViewController: UIViewController {
     @IBAction func greenColorSet() {
         
         let greenColorValue = String(round(greenColorSlider.value * 100) / 100)
-        let greenColor = UIColor(red: CGFloat(redColorSlider.value),
-                                 green: CGFloat(greenColorSlider.value),
-                                 blue: CGFloat(blueColorSlider.value),
-                                 alpha: 1)
         
         greenColorValueLabel.text = greenColorValue
-        viewColorRange.backgroundColor = greenColor
+        
+        backgroundColors()
     }
     
     @IBAction func blueColorSet() {
         
         let blueColorValue = String(round(blueColorSlider.value * 100) / 100)
-        let blueColor = UIColor(red: CGFloat(redColorSlider.value),
-                                green: CGFloat(greenColorSlider.value),
-                                blue: CGFloat(blueColorSlider.value),
-                                alpha: 1)
-        
+      
         blueColorValueLabel.text = blueColorValue
-        viewColorRange.backgroundColor = blueColor
+        
+        backgroundColors()
     }
+    
+
     
 }
 
