@@ -13,13 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenColorSlider: UISlider!
     @IBOutlet weak var blueColorSlider: UISlider!
     
-    private func backgroundColors() {
-        viewColorRange.backgroundColor = UIColor(red: CGFloat(redColorSlider.value),
-                                                 green: CGFloat(greenColorSlider.value),
-                                                 blue: CGFloat(blueColorSlider.value),
-                                                 alpha: 1)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +69,12 @@ class ViewController: UIViewController {
         backgroundColors()
     }
     
-
+    private func backgroundColors() {
+        viewColorRange.backgroundColor = UIColor(red: CGFloat(redColorSlider.value),
+                                                 green: CGFloat(greenColorSlider.value),
+                                                 blue: CGFloat(blueColorSlider.value),
+                                                 alpha: 1)
+    }
     
 }
 
